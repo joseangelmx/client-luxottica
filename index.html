@@ -107,11 +107,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
-                            <input type="number" class="form-control" id="scannerNLaneWStatusDivert" >
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivert" value="1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
-                            <input type="number" class="form-control" id="scannerNLaneWFullDivert">
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivert" value="0">
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="responseDivertCode"></label>
@@ -122,7 +122,7 @@
                         <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="countdownLabel">0</label>
                         <br>
-                        <button type="button" class="btn btn-primary" onclick="DivertTote();">Divert</button>
+                        <button type="button" class="btn btn-primary" id="divertButton" onclick="DivertTote();">Divert</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -144,7 +144,7 @@
                             Confirm
                           </div>
                           
-                        <button type="button" class="btn btn-primary" onclick="DivertConfirm();">Confirm Tote</button>
+                        <button type="button" class="btn btn-primary" id="divertConfirm" onclick="DivertConfirm();">Confirm Tote</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -164,11 +164,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
-                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertBorder" >
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertBorder" value="1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
-                            <input type="number" class="form-control" id="scannerNLaneWFullDivertBorder">
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertBorder" value="0">
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeBorder"></label>
@@ -177,7 +177,7 @@
                         <label for="exampleFormControlInput1" class="form-label" id="responseTrackingIdBorder"></label>
 
                         <br>
-                        <button type="button" class="btn btn-primary" onclick="BorderPicking();">Border Picking</button>
+                        <button type="button" class="btn btn-primary" id="borderPickingButton" onclick="BorderPicking();">Border Picking</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -197,16 +197,16 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
-                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertTransfer" >
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertTransfer" value="1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
-                            <input type="number" class="form-control" id="scannerNLaneWFullDivertTransfer">
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertTransfer" value="0">
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeTransfer"></label>
                         <br>
-                        <button type="button" class="btn btn-primary" onclick="TransferInbound();">Check Tote</button>
+                        <button type="button" class="btn btn-primary" id="transferInboundButton" onclick="TransferInbound();">Check Tote</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -226,11 +226,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
-                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertSingle" >
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertSingle" value="1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
-                            <input type="number" class="form-control" id="scannerNLaneWFullDivertSingle">
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertSingle" value="0">
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeSingle"></label>
@@ -241,7 +241,7 @@
                         <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="countdownLabelSingle">0</label>
                         <br>
-                        <button type="button" class="btn btn-primary" onclick="DivertToteSingle();">Divert</button>
+                        <button type="button" class="btn btn-primary" id="divertToteSingleButton" onclick="DivertToteSingle();">Divert</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -261,11 +261,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
-                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertMulti" >
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertMulti" value="1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
-                            <input type="number" class="form-control" id="scannerNLaneWFullDivertMulti">
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertMulti" value="0">
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeMulti"></label>
@@ -276,7 +276,7 @@
                         <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="countdownLabelMulti">0</label>
                         <br>
-                        <button type="button" class="btn btn-primary" onclick="DivertToteMulti();">Divert</button>
+                        <button type="button" class="btn btn-primary" id="divertMultiButton" onclick="DivertToteMulti();">Divert</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -284,7 +284,7 @@
                         <h5 class="card-title">Divert Cam11</h5>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
-                            <input type="text" class="form-control" id="camIdDivertCam11">
+                            <input type="text" class="form-control" id="camIdDivertCam11" value="Cam11">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
@@ -296,11 +296,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
-                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam11" >
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam11" value="1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
-                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam11">
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam11" value="0">
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeCam11"></label>
@@ -311,7 +311,7 @@
                         <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="countdownLabelCam11">0</label>
                         <br>
-                        <button type="button" class="btn btn-primary" onclick="DivertCam11();">Divert</button>
+                        <button type="button" class="btn btn-primary" id="divertCam11Button" onclick="DivertCam11();">Divert</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -319,7 +319,7 @@
                         <h5 class="card-title">Divert Multi Cam14</h5>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
-                            <input type="text" class="form-control" id="camIdDivertCam14">
+                            <input type="text" class="form-control" id="camIdDivertCam14" value="Cam14">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
@@ -331,11 +331,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
-                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam14" >
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam14" value="1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
-                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam14">
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam14" value="0">
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeCam14"></label>
@@ -346,7 +346,7 @@
                         <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="countdownLabelCam14">0</label>
                         <br>
-                        <button type="button" class="btn btn-primary" onclick="DivertCam14();">Divert</button>
+                        <button type="button" class="btn btn-primary" id="divertCam14Button" onclick="DivertCam14();">Divert</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -354,7 +354,7 @@
                         <h5 class="card-title">Divert Confirm Cam14</h5>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
-                            <input type="text" class="form-control" id="camIdDivertConfirmCam14">
+                            <input type="text" class="form-control" id="camIdDivertConfirmCam14" value="Cam14">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
@@ -368,7 +368,7 @@
                             Confirm
                           </div>
                           
-                        <button type="button" class="btn btn-primary" onclick="DivertConfirmCam14();">Confirm Tote</button>
+                        <button type="button" class="btn btn-primary" id="divertConfirmCam14Button" onclick="DivertConfirmCam14();">Confirm Tote</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -376,7 +376,7 @@
                         <h5 class="card-title">Divert Multi Cam15</h5>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
-                            <input type="text" class="form-control" id="camIdDivertCam15">
+                            <input type="text" class="form-control" id="camIdDivertCam15" value="Cam15">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
@@ -388,11 +388,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
-                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam15" >
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam15" value="1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
-                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam15">
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam15" value="0">
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeCam15"></label>
@@ -403,7 +403,7 @@
                         <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="countdownLabelCam15">0</label>
                         <br>
-                        <button type="button" class="btn btn-primary" onclick="DivertCam15();">Divert</button>
+                        <button type="button" class="btn btn-primary" id="divertCam15Button" onclick="DivertCam15();">Divert</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -411,7 +411,7 @@
                         <h5 class="card-title">Divert Confirm Cam15</h5>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
-                            <input type="text" class="form-control" id="camIdDivertConfirmCam15">
+                            <input type="text" class="form-control" id="camIdDivertConfirmCam15" value="Cam15">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
@@ -425,7 +425,7 @@
                             Confirm
                           </div>
                           
-                        <button type="button" class="btn btn-primary" onclick="DivertConfirmCam15();">Confirm Tote</button>
+                        <button type="button" class="btn btn-primary" id="divertConfirmCam15Button" onclick="DivertConfirmCam15();">Confirm Tote</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -433,7 +433,7 @@
                         <h5 class="card-title">Divert Multi Cam16</h5>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
-                            <input type="text" class="form-control" id="camIdDivertCam16">
+                            <input type="text" class="form-control" id="camIdDivertCam16" value="Cam16">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
@@ -445,11 +445,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
-                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam16" >
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam16" value="1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
-                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam16">
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam16" value="0">
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeCam16"></label>
@@ -460,7 +460,7 @@
                         <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="countdownLabelCam16">0</label>
                         <br>
-                        <button type="button" class="btn btn-primary" onclick="DivertCam16();">Divert</button>
+                        <button type="button" class="btn btn-primary" id="divertCam16Button" onclick="DivertCam16();">Divert</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -468,7 +468,7 @@
                         <h5 class="card-title">Divert Confirm Cam16</h5>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
-                            <input type="text" class="form-control" id="camIdDivertConfirmCam16">
+                            <input type="text" class="form-control" id="camIdDivertConfirmCam16" value="Cam16">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
@@ -482,7 +482,7 @@
                             Confirm
                           </div>
                           
-                        <button type="button" class="btn btn-primary" onclick="DivertConfirmCam16();">Confirm Tote</button>
+                        <button type="button" class="btn btn-primary" id="divertConfirmCam16Button" onclick="DivertConfirmCam16();">Confirm Tote</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -490,7 +490,7 @@
                         <h5 class="card-title">Divert Multi Cam17</h5>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
-                            <input type="text" class="form-control" id="camIdDivertCam17">
+                            <input type="text" class="form-control" id="camIdDivertCam17" value="Cam17">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
@@ -502,11 +502,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
-                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam17" >
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam17" value="1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
-                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam17">
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam17" value="0">
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeCam17"></label>
@@ -517,7 +517,7 @@
                         <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
                         <label for="exampleFormControlInput1" class="form-label" id="countdownLabelCam17">0</label>
                         <br>
-                        <button type="button" class="btn btn-primary" onclick="DivertCam17();">Divert</button>
+                        <button type="button" class="btn btn-primary" id="divertCam17Button" onclick="DivertCam17();">Divert</button>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem; margin-left: 10px;">
@@ -525,7 +525,7 @@
                         <h5 class="card-title">Divert Confirm Cam17</h5>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
-                            <input type="text" class="form-control" id="camIdDivertConfirmCam17">
+                            <input type="text" class="form-control" id="camIdDivertConfirmCam17" value="Cam17">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
@@ -539,7 +539,7 @@
                             Confirm
                           </div>
                           
-                        <button type="button" class="btn btn-primary" onclick="DivertConfirmCam17();">Confirm Tote</button>
+                        <button type="button" class="btn btn-primary" id="divertConfirmCam17Button" onclick="DivertConfirmCam17();">Confirm Tote</button>
                         </div>
                     </div>
                 </div>

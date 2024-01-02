@@ -30,6 +30,7 @@ document.getElementById("login-button").addEventListener("click", function() {
         // Guardar el token en el almacenamiento local (localStorage, sessionStorage) o cookie
         document.cookie = `token=${token}; expires=${expirationDate.toUTCString()}; SameSite=None; Secure; path=/`;
         alert("Sesión iniciada");
+        location.reload();
     })
     .catch(error => {
         console.error("Error:", error);
@@ -45,7 +46,7 @@ function newToteInformation() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         toteLpn: toteLpnV
     };
 
@@ -85,7 +86,7 @@ function DivertTote() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         toteLpn: toteLpnV,
         scannerNLaneWStatus: scannerNLaneWStatusV,
         scannerNLaneWFull: scannerNLaneWFullV
@@ -109,7 +110,7 @@ function DivertTote() {
     })
     .then(data => {
         document.getElementById("responseDivertCode").textContent = data.divert_code;
-        document.getElementById("responseTrackingId").textContent = data.tracking_id;
+        document.getElementById("responseTrackingId").innerText = data.tracking_id;
         countdown();
     })
     .catch(error => {
@@ -126,7 +127,7 @@ function DivertToteSingle() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         toteLpn: toteLpnV,
         scannerNLaneWStatus: scannerNLaneWStatusV,
         scannerNLaneWFull: scannerNLaneWFullV
@@ -166,7 +167,7 @@ function DivertToteMulti() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         toteLpn: toteLpnV,
         scannerNLaneWStatus: scannerNLaneWStatusV,
         scannerNLaneWFull: scannerNLaneWFullV
@@ -206,7 +207,7 @@ function DivertCam11() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         toteLpn: toteLpnV,
         scannerNLaneWStatus: scannerNLaneWStatusV,
         scannerNLaneWFull: scannerNLaneWFullV
@@ -246,7 +247,7 @@ function DivertCam14() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         toteLpn: toteLpnV,
         scannerNLaneWStatus: scannerNLaneWStatusV,
         scannerNLaneWFull: scannerNLaneWFullV
@@ -284,7 +285,7 @@ function DivertConfirmCam14() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         divertCode: DivertCodeV
     };
 
@@ -320,7 +321,7 @@ function DivertCam15() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         toteLpn: toteLpnV,
         scannerNLaneWStatus: scannerNLaneWStatusV,
         scannerNLaneWFull: scannerNLaneWFullV
@@ -358,7 +359,7 @@ function DivertConfirmCam15() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         divertCode: DivertCodeV
     };
 
@@ -394,7 +395,7 @@ function DivertCam16() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         toteLpn: toteLpnV,
         scannerNLaneWStatus: scannerNLaneWStatusV,
         scannerNLaneWFull: scannerNLaneWFullV
@@ -432,7 +433,7 @@ function DivertConfirmCam16() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         divertCode: DivertCodeV
     };
 
@@ -468,7 +469,7 @@ function DivertCam17() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         toteLpn: toteLpnV,
         scannerNLaneWStatus: scannerNLaneWStatusV,
         scannerNLaneWFull: scannerNLaneWFullV
@@ -506,7 +507,7 @@ function DivertConfirmCam17() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         divertCode: DivertCodeV
     };
 
@@ -617,7 +618,7 @@ function DivertConfirm() {
 
     const data = {
         camId: camIdV,
-        trackingId: trackingIdV,
+        trakingId: trackingIdV,
         divertCode: DivertCodeV
     };
 
@@ -724,7 +725,9 @@ function countdown() {
         countdownLabel.textContent = '¡Tiempo terminado!';
         // Aquí podrías ejecutar alguna acción adicional una vez que termine la cuenta regresiva
       }
+ 
     }
+    tick();
 }
     function countdownCam11() {
         let seconds = 10;
