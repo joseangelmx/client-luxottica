@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <title>Auto Test</title>
+            <!-- Enlace a los archivos CSS de Bootstrap -->
+            <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        </head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white text-center" href="#">Auto testing</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+
+          </div>
+        </div>
+      </nav>
+    <div class="container py-5">
+        <div class="row text-center text-white">
+            <div class="row col-lg-8 mx-auto">
+                <br>
+                <div class="card" style="width: 18rem;margin: auto;">
+                    <div class="card-body">
+                    <h5 class="card-title">Generar token</h5>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="emailLog">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="passwordLog">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="login-button">Entrar</button>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;margin: auto;">
+                    <div class="card-body">
+                    <h5 class="card-title">Tote generation</h5>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                        <input type="text" class="form-control" id="toteGenerated">
+                    </div>
+                    <select name="select">
+                        <option value="value1" selected>Jackpot</option>
+                        <option value="value2">Second Level</option>
+                        <option value="value3">Multi</option>
+                      </select>
+                      <br><br>
+                    <button type="button" class="btn btn-primary" onclick="newTote();">Generar</button>
+                    </div>
+                </div>
+                <br>
+
+            </div>
+        </div>
+    </div>
+            <div class="container">
+                <div class="row" id="cardContainer">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                        <h5 class="card-title">New Tote</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdNewTote">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdNewTote">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                            <input type="text" class="form-control" id="toteLpnNewTote">
+                        </div>
+                        <label for="exampleFormControlInput1" class="form-label">ToteLPN:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseToteLpn"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Virtual Tote:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseVirtualTote"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Zone Id:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseZoneId"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Timestamp:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseTimestamp"></label>
+                        <br>
+                        <button type="button" class="btn btn-primary" id="newToteButton" onclick="newToteInformation();">New Tote</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivert">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivert">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                            <input type="text" class="form-control" id="toteLpnDivert">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivert" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivert">
+                        </div>
+                        <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseDivertCode"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tracking ID:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseTrackingId"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="countdownLabel">0</label>
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="DivertTote();">Divert</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Confirmation</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertConfirm">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertConfirm">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Divert Code</label>
+                            <input type="number" class="form-control" id="divertCodeConfirm">
+                        </div>
+                        <div class="alert alert-primary text-center" role="alert" id="confirmMessage" style="display: none;">
+                            Confirm
+                          </div>
+                          
+                        <button type="button" class="btn btn-primary" onclick="DivertConfirm();">Confirm Tote</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Border Picking</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertBorder">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertBorder">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                            <input type="text" class="form-control" id="toteLpnDivertBorder">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertBorder" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertBorder">
+                        </div>
+                        <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeBorder"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tracking ID:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseTrackingIdBorder"></label>
+
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="BorderPicking();">Border Picking</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Transfer Inbound</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertTransfer">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertTransfer">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                            <input type="text" class="form-control" id="toteLpnDivertTransfer">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertTransfer" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertTransfer">
+                        </div>
+                        <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeTransfer"></label>
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="TransferInbound();">Check Tote</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Tote Single</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertSingle">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertSingle">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                            <input type="text" class="form-control" id="toteLpnDivertSingle">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertSingle" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertSingle">
+                        </div>
+                        <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeSingle"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tracking ID:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseTrackingIdSingle"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="countdownLabelSingle">0</label>
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="DivertToteSingle();">Divert</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Multi Tote</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertMulti">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertMulti">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                            <input type="text" class="form-control" id="toteLpnDivertMulti">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertMulti" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertMulti">
+                        </div>
+                        <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeMulti"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tracking ID:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseTrackingIdMulti"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="countdownLabelMulti">0</label>
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="DivertToteMulti();">Divert</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Cam11</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertCam11">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertCam11">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                            <input type="text" class="form-control" id="toteLpnDivertCam11">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam11" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam11">
+                        </div>
+                        <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeCam11"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tracking ID:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseTrackingIdCam11"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="countdownLabelCam11">0</label>
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="DivertCam11();">Divert</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Multi Cam14</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertCam14">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertCam14">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                            <input type="text" class="form-control" id="toteLpnDivertCam14">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam14" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam14">
+                        </div>
+                        <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeCam14"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tracking ID:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseTrackingIdCam14"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="countdownLabelCam14">0</label>
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="DivertCam14();">Divert</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Confirm Cam14</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertConfirmCam14">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertConfirmCam14">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Divert Code</label>
+                            <input type="number" class="form-control" id="divertCodeConfirmCam14">
+                        </div>
+                        <div class="alert alert-primary text-center" role="alert" id="confirmMessageCam14" style="display: none;">
+                            Confirm
+                          </div>
+                          
+                        <button type="button" class="btn btn-primary" onclick="DivertConfirmCam14();">Confirm Tote</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Multi Cam15</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertCam15">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertCam15">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                            <input type="text" class="form-control" id="toteLpnDivertCam15">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam15" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam15">
+                        </div>
+                        <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeCam15"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tracking ID:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseTrackingIdCam15"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="countdownLabelCam15">0</label>
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="DivertCam15();">Divert</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Confirm Cam15</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertConfirmCam15">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertConfirmCam15">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Divert Code</label>
+                            <input type="number" class="form-control" id="divertCodeConfirmCam15">
+                        </div>
+                        <div class="alert alert-primary text-center" role="alert" id="confirmMessageCam15" style="display: none;">
+                            Confirm
+                          </div>
+                          
+                        <button type="button" class="btn btn-primary" onclick="DivertConfirmCam15();">Confirm Tote</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Multi Cam16</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertCam16">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertCam16">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                            <input type="text" class="form-control" id="toteLpnDivertCam16">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam16" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam16">
+                        </div>
+                        <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeCam16"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tracking ID:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseTrackingIdCam16"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="countdownLabelCam16">0</label>
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="DivertCam16();">Divert</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Confirm Cam16</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertConfirmCam16">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertConfirmCam16">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Divert Code</label>
+                            <input type="number" class="form-control" id="divertCodeConfirmCam16">
+                        </div>
+                        <div class="alert alert-primary text-center" role="alert" id="confirmMessageCam16" style="display: none;">
+                            Confirm
+                          </div>
+                          
+                        <button type="button" class="btn btn-primary" onclick="DivertConfirmCam16();">Confirm Tote</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Multi Cam17</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertCam17">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertCam17">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">ToteLpn</label>
+                            <input type="text" class="form-control" id="toteLpnDivertCam17">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWStatus</label>
+                            <input type="number" class="form-control" id="scannerNLaneWStatusDivertCam17" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">scannerNLaneWFull</label>
+                            <input type="number" class="form-control" id="scannerNLaneWFullDivertCam17">
+                        </div>
+                        <label for="exampleFormControlInput1" class="form-label">Divert Code:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseDivertCodeCam17"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tracking ID:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="responseTrackingIdCam17"></label>
+                        <br>
+                        <label for="exampleFormControlInput1" class="form-label">Tiempo para confirmar:&nbsp;</label>
+                        <label for="exampleFormControlInput1" class="form-label" id="countdownLabelCam17">0</label>
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="DivertCam17();">Divert</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem; margin-left: 10px;">
+                        <div class="card-body">
+                        <h5 class="card-title">Divert Confirm Cam17</h5>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Cam Id</label>
+                            <input type="text" class="form-control" id="camIdDivertConfirmCam17">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Tracking Id</label>
+                            <input type="number" class="form-control" id="trackingIdDivertConfirmCam17">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Divert Code</label>
+                            <input type="number" class="form-control" id="divertCodeConfirmCam17">
+                        </div>
+                        <div class="alert alert-primary text-center" role="alert" id="confirmMessageCam17" style="display: none;">
+                            Confirm
+                          </div>
+                          
+                        <button type="button" class="btn btn-primary" onclick="DivertConfirmCam17();">Confirm Tote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/js/login.js"></script>
+        </body>
+    </html>

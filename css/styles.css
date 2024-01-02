@@ -1,0 +1,20 @@
+.color{
+    background-color:  #0082c9 ;
+}
+
+.hand-pointer {
+    cursor: pointer;
+  }
+  
+  .hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.foot{
+	text-align:center;
+}
+.card{
+	width: 500px;
+	left: 100px;
+}
