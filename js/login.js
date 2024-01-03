@@ -543,8 +543,8 @@ function BorderPicking() {
 
     const data = {
         camId: camIdV,
+        toteLPN: toteLpnV,
         trackingId: trackingIdV,
-        toteLpn: toteLpnV,
         scannerNLaneWStatus: scannerNLaneWStatusV,
         scannerNLaneWFull: scannerNLaneWFullV
     };
