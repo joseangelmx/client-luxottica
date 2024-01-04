@@ -545,8 +545,8 @@ function BorderPicking() {
         camId: camIdV,
         toteLPN: toteLpnV,
         trackingId: trackingIdV,
-        scannerNLaneWStatus: scannerNLaneWStatusV,
-        scannerNLaneWFull: scannerNLaneWFullV
+        scanner_N_lane_w_status: scannerNLaneWStatusV,
+        scanner_N_lane_w_full: scannerNLaneWFullV
     };
 
     const token = getTokenFromCookie(); // Asegúrate de tener una función para obtener el token
