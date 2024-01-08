@@ -639,7 +639,7 @@ function DivertConfirm() {
         document.getElementById("confirmMessage").style.display = "block";
         setTimeout(function() {
             document.getElementById("confirmMessage").style.display = "none";
-        }, 3000);
+        }, 5000);
     })
     .catch(error => {
         console.error('Error al realizar la solicitud:', error);
@@ -819,3 +819,37 @@ function countdownCam17() {
 
 tick(); // Inicia la cuenta regresiva
 }
+
+function obtenerCamId() {
+    const zoneDivertId = document.getElementById("zoneDivertId").value;
+    const data = {
+      ZoneDivert: zoneDivertId
+    };
+    const token = getTokenFromCookie();
+    fetch(endpoint + 'api/AutoTesting/GetCamId', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al recibir la respuesta');
+        }
+        return response.json();
+    })
+    .then(data => {
+        document.getElementById("camIdDivert").textContent = data.camId;
+    })
+    .catch(error => {
+        console.error('Error al realizar la solicitud:', error);
+    });
+}
+
+  
+  
+
+
+      
