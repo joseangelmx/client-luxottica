@@ -605,7 +605,9 @@ function TransferInbound() {
         return response.json();
     })
     .then(data => {
+        obtenerDatosPorLPN(toteLpnV);
         document.getElementById("responseDivertCodeTransfer").textContent = data.divert_code;
+        
     })
     .catch(error => {
         console.error('Error al realizar la solicitud:', error);
@@ -842,6 +844,40 @@ function obtenerCamId() {
     })
     .then(data => {
         document.getElementById("camIdDivert").textContent = data.camId;
+    })
+    .catch(error => {
+        console.error('Error al realizar la solicitud:', error);
+    });
+}
+function obtenerDatosPorLPN(toteLPN) {
+    const token = getTokenFromCookie();
+
+    fetch(endpoint+ 'api/Toteinformation', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al recibir la respuesta');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Filtrar datos por toteLPN
+        const filtroDatos = data.find(item => item.toteLPN === toteLPN);
+
+        if (filtroDatos) {
+           
+            const zoneDivertId = filtroDatos.zoneDivertId;
+
+           
+            document.getElementById("responseZoneDivertTransfer").innerText = `${zoneDivertId}`;
+        } else {
+            console.error(`No se encontraron datos para toteLPN: ${toteLPN}`);
+        }
     })
     .catch(error => {
         console.error('Error al realizar la solicitud:', error);
